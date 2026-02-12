@@ -5,7 +5,7 @@ user-invocable: true
 argument-hint: <slug> [content-source]
 ---
 
-Save the current plan to a numbered directory inside a dated `plans/` folder. Each plan gets its own directory so screenshots, assets, and other files can be added alongside the plan.
+Save the current plan to a numbered directory inside a dated `.plans/` folder. Each plan gets its own directory so screenshots, assets, and other files can be added alongside the plan.
 
 ## Arguments
 
@@ -14,7 +14,7 @@ Save the current plan to a numbered directory inside a dated `plans/` folder. Ea
 
 ## Output Path Convention
 
-Plans are saved to: `./plans/YYYYMMDD/NN-slug/`
+Plans are saved to: `./.plans/YYYYMMDD/NN-slug/`
 
 - `YYYYMMDD` — today's date (e.g., `20260211`)
 - `NN` — zero-padded sequential number, incrementing from existing entries in today's folder
@@ -32,7 +32,7 @@ Each plan directory has a standard layout:
 
 Example structure:
 ```
-plans/
+.plans/
   20260211/
     01-auth-refactor/
       plan.md
@@ -49,17 +49,17 @@ plans/
 
 1. **Determine today's date** in `YYYYMMDD` format.
 
-2. **Ensure the date directory exists**: `./plans/YYYYMMDD/`
+2. **Ensure the date directory exists**: `./.plans/YYYYMMDD/`
 
 3. **Determine the next sequence number**:
-   - List existing entries (directories or files) in `./plans/YYYYMMDD/`
+   - List existing entries (directories or files) in `./.plans/YYYYMMDD/`
    - Find the highest numeric prefix (e.g., if `01-foo/` and `02-bar/` exist, next is `03`)
    - If the directory is empty or doesn't exist, start at `01`
    - Zero-pad to 2 digits
 
 4. **Create the plan directory and standard structure**:
-   - Create `./plans/YYYYMMDD/NN-slug/`
-   - Create `./plans/YYYYMMDD/NN-slug/.ref/`
+   - Create `./.plans/YYYYMMDD/NN-slug/`
+   - Create `./.plans/YYYYMMDD/NN-slug/.ref/`
 
 5. **Identify the plan content**:
    - If `$1` is a file path, read that file as the content
@@ -73,7 +73,7 @@ plans/
 
 ## Key Rules
 
-- Always use the project's working directory for the `./plans/` folder (not home directory)
+- Always use the project's working directory for the `./.plans/` folder (not home directory)
 - The slug should be kebab-case, lowercase, no spaces
 - If the user provides a slug with spaces or other formatting, convert it to kebab-case
 - Do not include the `plans/` prefix or date in the slug — those are added automatically

@@ -7,7 +7,7 @@ Custom [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skills — 
 | Skill | Command | Description |
 |-------|---------|-------------|
 | **publish-skill** | `/publish-skill <skill-name> [commit-message]` | Publish a specific Claude Code skill to this repo. This skill should be used when the user asks to "publish a skill", "push skill to GitHub", "sync a skill", or uses /publish-skill. |
-| **save-plan** | `/save-plan <slug> [content-source]` | Save the current plan or conversation context to a dated plan file |
+| **save-plan** | `/save-plan <slug> [content-source]` | Save the current plan or conversation context to a dated plan file. This skill should be used when the user asks to "save this plan", "archive the plan", "write the plan to a file", or uses /save-plan. |
 
 ## Installation
 
