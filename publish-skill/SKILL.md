@@ -1,6 +1,6 @@
 ---
 name: publish-skill
-description: Publish a specific Claude Code skill to the zoohilldata/claude-skills GitHub repository. This skill should be used when the user asks to "publish a skill", "push skill to GitHub", "sync a skill", or uses /publish-skill.
+description: Publish a specific Claude Code skill to this repo. This skill should be used when the user asks to "publish a skill", "push skill to GitHub", "sync a skill", or uses /publish-skill.
 user-invocable: true
 argument-hint: <skill-name> [commit-message]
 ---
@@ -15,18 +15,16 @@ Copy a specific skill from the local `~/.claude/skills/` directory to the `zoohi
 ## Repository
 
 - **Remote**: `https://github.com/zoohilldata/claude-skills`
-- **Local clone**: `~/Documents/code/claude-skills`
-
-If the local clone does not exist, clone it first:
-```bash
-gh repo clone zoohilldata/claude-skills ~/Documents/code/claude-skills
-```
 
 ## Steps
 
 1. **Validate the skill exists**: Check that `~/.claude/skills/$0/SKILL.md` exists. If not, list the available skills under `~/.claude/skills/` and ask the user which one to publish.
 
-2. **Locate the local repo clone**. Check if `~/Documents/code/claude-skills/.git` exists. If not, clone the repo there.
+2. **Locate the local repo clone**. The repo path is cached in `~/.claude/skills/publish-skill/.repo-path` to avoid re-searching every time.
+   - **First**, check if `~/.claude/skills/publish-skill/.repo-path` exists and contains a valid path (the directory has a `.git` folder). If so, use that path as `<repo-path>`.
+   - **If not cached or invalid**, search for an existing clone: `find ~ -maxdepth 4 -type d -name "claude-skills" 2>/dev/null` and check each result for a `.git` directory with the correct remote (`git -C <path> remote get-url origin` should contain `zoohilldata/claude-skills`).
+   - If found, save the path to `~/.claude/skills/publish-skill/.repo-path` and use it as `<repo-path>`.
+   - If **not found**, ask the user where they'd like to clone it using the AskUserQuestion tool. Suggest a sensible default. Then clone with `gh repo clone zoohilldata/claude-skills <chosen-path>` and save the path to `~/.claude/skills/publish-skill/.repo-path`.
 
 3. **Pull latest** from the remote to avoid conflicts:
    ```bash
