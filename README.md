@@ -6,9 +6,6 @@ Custom [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skills — 
 
 | Skill | Command | Description |
 |-------|---------|-------------|
-| **save-plan** | `/save-plan <slug>` | Save the current plan to a dated markdown file (`./plans/YYYYMMDD/NN-slug.md`), auto-incrementing the sequence number |
-| **publish-skill** | `/publish-skill <skill-name>` | Publish a specific skill from `~/.claude/skills/` to this GitHub repo |
-| **ado-story** | `/ado-story <work-item-id>` | Fetch an Azure DevOps user story and its child tasks, generate a formatted markdown summary |
 
 ## Installation
 
@@ -35,9 +32,7 @@ Skills are picked up automatically — restart Claude Code or start a new conver
 Once installed, invoke a skill with its slash command:
 
 ```
-/save-plan global-editor
 /publish-skill save-plan
-/ado-story 12345
 ```
 
 ## Publishing skills
