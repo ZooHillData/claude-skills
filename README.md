@@ -6,7 +6,7 @@ Custom [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skills — 
 
 | Skill | Command | Description |
 |-------|---------|-------------|
-| **publish-skill** | `/publish-skill <skill-name> [commit-message]` | Publish a specific Claude Code skill to the zoohilldata/claude-skills GitHub repository |
+| **publish-skill** | `/publish-skill <skill-name> [commit-message]` | Publish a specific Claude Code skill to this repo |
 
 ## Installation
 
