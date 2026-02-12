@@ -33,9 +33,9 @@ Copy a specific skill from the local `~/.claude/skills/` directory to the `zoohi
 
 4. **Copy the specific skill**: Sync only the named skill directory into the repo, replacing existing content for that skill:
    ```bash
-   rsync -av --delete ~/.claude/skills/$0/ <repo-path>/$0/
+   rsync -av --delete --exclude='.repo-path' ~/.claude/skills/$0/ <repo-path>/$0/
    ```
-   This overwrites the skill in the repo with the local version. Other skills in the repo are left untouched.
+   This overwrites the skill in the repo with the local version. Other skills in the repo are left untouched. The `.repo-path` file is excluded because it contains local machine-specific data.
 
 5. **Update the README skills table**: Read `<repo-path>/README.md` and find the `## Skills` markdown table. Extract the skill's description from the `description` field in the `SKILL.md` frontmatter, and the command from the `name` and `argument-hint` fields.
    - If the skill already has a row in the table, update it with the current description and argument hint.
