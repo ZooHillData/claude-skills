@@ -1,10 +1,14 @@
 # Claude Skills
 
-Custom [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skills for the ZooHill Data team.
+Custom [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skills — reusable prompts that extend Claude Code with custom slash commands. Each skill lives in its own directory with a `SKILL.md` file that defines its name, description, and instructions.
 
-## What are skills?
+## Skills
 
-Skills are reusable prompts that extend Claude Code with custom slash commands. Each skill lives in its own directory with a `SKILL.md` file that defines its name, description, and instructions.
+| Skill | Command | Description |
+|-------|---------|-------------|
+| **save-plan** | `/save-plan <slug>` | Save the current plan to a dated markdown file (`./plans/YYYYMMDD/NN-slug.md`), auto-incrementing the sequence number |
+| **publish-plan** | `/publish-plan <skill-name>` | Publish a specific skill from `~/.claude/skills/` to this GitHub repo |
+| **ado-story** | `/ado-story <work-item-id>` | Fetch an Azure DevOps user story and its child tasks, generate a formatted markdown summary |
 
 ## Installation
 
